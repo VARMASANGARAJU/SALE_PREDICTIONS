@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+    <html lang="en">
+    {% load static %}
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!--=============== FAVICON ===============-->
+        <link rel="shortcut icon" type="image/x-icon" href="{% static '/img/favicon.png' %}" >
+
+        <!--=============== REMIX ICONS ===============-->
+        <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+        <!--=============== CSS ===============-->
+        <link rel="stylesheet" type="text/css" href="{% static '/css/styles.css' %}" >
+
+        <title>Sales Prediction</title>
+    </head>
+    <body>
+        <!--==================== HEADER ====================-->
+        <header class="header" id="header">
+            <nav class="nav container">
+                <a href="#" class="nav__logo">
+                    <i class="ri-leaf-line nav__logo-icon"></i> Sales Prediction
+                </a>
+
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+
+
+                        <li class="nav__item">
+                            <a href="#upload" class="nav__link active-link">Upload CSV</a>
+                        </li>
+
+                    </ul>
+
+                    <div class="nav__close" id="nav-close">
+                        <i class="ri-close-line"></i>
+                    </div>
+                </div>
+
+                <div class="nav__btns">
+                    <!-- Theme change button -->
+                    <i class="ri-moon-line change-theme" id="theme-button"></i>
+
+                    <div class="nav__toggle" id="nav-toggle">
+                        <i class="ri-menu-line"></i>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <main class="main">
+
+            <section class="questions section" >
+                <h2 class="section__title-center questions__title container">
+                   Uploaded Data <br>
+                </h2>
+
+                {% if messages %}
+                  {% for message in messages %}
+                    {{ message|safe }}
+                  {% endfor %}
+                {% else %}
+
+                <div class="questions__container container grid">
+                    <div class="questions__group">
+                      <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <label> Upload a File </label>
+                        <input type="file" name="file">
+                        <p> Only Accepts CSV file </p>
+                        <br>
+                        <button class="button button--upload" type="submit">Upload</button>
+                      </form>
+                  </div>
+                  <a href="{% url 'data_input' %}" class="button">
+                      Start Model Training Using XGBoost algorithm
+                  </a>
+              </div>
+
+              <div>
+
+              </div>
+
+              {% endif %}
+
+            </section>
+
+            <!-- start of table -->
+            <div style="overflow-x:auto;">
+                  <table>
+                        <thead>
+                          <tr>
+                          <th scope="col">  </th>
+                          {% if headers %}
+                          <th scope="col">S.NO</th>
+                          {% endif %}
+                          {% for header in headers %}
+                            <th scope="col">{{ header }}</th>
+                          {% endfor %}
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {% for data in all_data %}
+                             <tr>
+                               <td></td>
+                               <td>{{ forloop.counter }}</td>
+                               {% for item in data %}
+                                 <td>{{ item }}</td>
+                               {% endfor %}
+                             </tr>
+                          {% endfor %}
+
+                        </tbody>
+                    </table>
+            </div>
+            <!-- end of table -->
+
+
+
+        <!--=============== SCROLL UP ===============-->
+        <a href="#" class="scrollup" id="scroll-up">
+            <i class="ri-arrow-up-fill scrollup__icon"></i>
+        </a>
+
+        <!--=============== SCROLL REVEAL ===============-->
+        <script src="{% static "js/scrollreveal.min.js" %}"></script>
+
+        <!--=============== MAIN JS ===============-->
+        <script src="{% static "js/main.js" %}"></script>
+
+    </body>
+</html>

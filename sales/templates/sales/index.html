@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+    <html lang="en">
+    {% load static %}
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!--=============== FAVICON ===============-->
+        <link rel="shortcut icon" type="image/x-icon" href="{% static '/img/favicon.png' %}" >
+
+        <!--=============== REMIX ICONS ===============-->
+        <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+        <!--=============== CSS ===============-->
+        <link rel="stylesheet" type="text/css" href="{% static '/css/styles.css' %}" >
+
+
+        <title>Sales Prediction</title>
+    </head>
+    <body>
+        <!--==================== HEADER ====================-->
+        <header class="header" id="header">
+            <nav class="nav container">
+                <a href="#" class="nav__logo">
+                    <i class="ri-leaf-line nav__logo-icon"></i> Sales Prediction
+                </a>
+
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li class="nav__item">
+                            <a href="#home" class="nav__link active-link">Home</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#about" class="nav__link">About</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#upload" class="nav__link">Steps</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#faqs" class="nav__link">FAQ's</a>
+                        </li>
+                    </ul>
+
+                    <div class="nav__close" id="nav-close">
+                        <i class="ri-close-line"></i>
+                    </div>
+                </div>
+
+                <div class="nav__btns">
+                    <!-- Theme change button -->
+                    <i class="ri-moon-line change-theme" id="theme-button"></i>
+
+                    <div class="nav__toggle" id="nav-toggle">
+                        <i class="ri-menu-line"></i>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <main class="main">
+            <!--==================== HOME ====================-->
+            <section class="home" id="home">
+                <div class="home__container container grid">
+                    <img src="assets/img/home.png" alt="" class="home__img">
+
+                    <div class="home__data">
+                        <h1 class="home__title">
+                            Predictions will make your Business better
+                        </h1>
+                        <p class="home__description">
+                            Create incredible predictions for your BigMarts or Stores.
+                            Add Profits to your Sales.
+                        </p>
+                        <a href="{% url 'upload_csv' %}" class="button button--flex">
+                            Start <i class="ri-arrow-right-down-line button__icon"></i>
+                        </a>
+                    </div>
+
+
+                </div>
+            </section>
+
+            <!--==================== ABOUT ====================-->
+            <section class="about section container" id="about">
+                <div class="about__container grid">
+                    <img src="assets/img/about.png" alt="" class="about__img">
+
+                    <div class="about__data">
+                        <h2 class="section__title about__title">
+                            Why we really Need AI & ML to Forecast Sales
+                        </h2>
+
+                        <p class="about__description">
+                            An accurate sales forecast process confers many benefits. These include:
+                        </p>
+
+                        <div class="about__details">
+                            <p class="about__details-description">
+                                <i class="ri-checkbox-fill about__details-icon"></i>
+                                Improved decision-making about the future
+                            </p>
+                            <p class="about__details-description">
+                                <i class="ri-checkbox-fill about__details-icon"></i>
+                                Reduction of sales pipeline and forecast risks
+                            </p>
+                            <p class="about__details-description">
+                                <i class="ri-checkbox-fill about__details-icon"></i>
+                                Alignment of sales quotas and revenue expectations
+                            </p>
+                            <p class="about__details-description">
+                                <i class="ri-checkbox-fill about__details-icon"></i>
+                                Benchmarks that can be used to assess trends in the future
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!--==================== STEPS ====================-->
+            <section class="steps section container" id="upload">
+                <div class="steps__bg">
+                    <h2 class="section__title-center steps__title">
+                        Steps to start your <br> Predictions with us
+                    </h2>
+
+                    <div class="steps__container grid">
+                        <div class="steps__card">
+                            <div class="steps__card-number">01</div>
+                            <h3 class="steps__card-title">Upload CSV</h3>
+                            <p class="steps__card-description">
+                                Upload your Data.We'll be performing some basic data exploration here and come up with some inferences about the data
+                            </p>
+                        </div>
+
+                        <div class="steps__card">
+                            <div class="steps__card-number">02</div>
+                            <h3 class="steps__card-title">Train Data</h3>
+                            <p class="steps__card-description">
+                                Once your data is uploaded, our ML algorithms will start training over the data.
+                            </p>
+                        </div>
+
+                        <div class="steps__card">
+                            <div class="steps__card-number">03</div>
+                            <h3 class="steps__card-title">Get your Predictions</h3>
+                            <p class="steps__card-description">
+                              Select your Combination from given options to get the best prediction
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+
+            <!--==================== QUESTIONS ====================-->
+            <section class="questions section" id="faqs">
+                <h2 class="section__title-center questions__title container">
+                    Some common questions <br> were often asked
+                </h2>
+
+                <div class="questions__container container grid">
+                    <div class="questions__group">
+                        <div class="questions__item">
+                            <header class="questions__header">
+                                <i class="ri-add-line questions__icon"></i>
+                                <h3 class="questions__item-title">
+                                    Which approach should be used to predict sales of supermarket?
+                                </h3>
+                            </header>
+
+                            <div class="questions__content">
+                                <p class="questions__description">
+                                  The use of traditional statistical method to forecast supermarket sales has left a lot of challenges
+                                  unaddressed and mostly result in the creation of predictive models that perform poorly.
+                                  The era of big data coupled with access to massive compute power has made machine learning
+                                  a goto for sales forecast.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="questions__item">
+                            <header class="questions__header">
+                                <i class="ri-add-line questions__icon"></i>
+                                <h3 class="questions__item-title">
+                                    What is Sales Forecasting?
+                                </h3>
+                            </header>
+
+                            <div class="questions__content">
+                                <p class="questions__description">
+                                  A sales forecast is an expression of expected sales revenue.
+                                  A sales forecast estimates how much your company plans to sell within a certain time period (like quarter or year).
+                                  The best sales forecasts do this with a high degree of accuracy.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="questions__item">
+                            <header class="questions__header">
+                                <i class="ri-add-line questions__icon"></i>
+                                <h3 class="questions__item-title">
+                                  What is r2_score ?
+                                </h3>
+                            </header>
+
+                            <div class="questions__content">
+                                <p class="questions__description">
+                                    The R2 score is a very important metric that is used to evaluate the performance of a regression-based machine learning model.
+                                    It is pronounced as R squared and is also known as the coefficient of determination.
+                                    It works by measuring the amount of variance in the predictions explained by the dataset
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="questions__group">
+                        <div class="questions__item">
+                            <header class="questions__header">
+                                <i class="ri-add-line questions__icon"></i>
+                                <h3 class="questions__item-title">
+                                    What is MAE?
+                                </h3>
+                            </header>
+
+                            <div class="questions__content">
+                                <p class="questions__description">
+                                    In statistics, mean absolute error (MAE) is a measure of errors between paired observations expressing the same phenomenon.
+                                    Examples of Y versus X include comparisons of predicted versus observed,
+                                    subsequent time versus initial time, and one technique of measurement versus an alternative technique of measurement
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="questions__item">
+                            <header class="questions__header">
+                                <i class="ri-add-line questions__icon"></i>
+                                <h3 class="questions__item-title">
+                                    Seasonality refers?
+                                </h3>
+                            </header>
+
+                            <div class="questions__content">
+                                <p class="questions__description">
+                                    Seasonality refers to periodic fluctuations in certain business areas and cycles
+                                    that occur regularly based on a particular season. A season may refer to a calendar season such as summer or winter,
+                                    or it may refer to a commercial season such as the holiday season.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="questions__item">
+                            <header class="questions__header">
+                                <i class="ri-add-line questions__icon"></i>
+                                <h3 class="questions__item-title">
+                                    What is trend in Forecasting?
+                                </h3>
+                            </header>
+
+                            <div class="questions__content">
+                                <p class="questions__description">
+                                    a general systematic linear or (most often) nonlinear component that changes over time and does not repeat
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+
+        <!--=============== SCROLL UP ===============-->
+        <a href="#" class="scrollup" id="scroll-up">
+            <i class="ri-arrow-up-fill scrollup__icon"></i>
+        </a>
+
+        <!--=============== SCROLL REVEAL ===============-->
+        <script src="{% static "js/scrollreveal.min.js" %}"></script>
+
+        <!--=============== MAIN JS ===============-->
+        <script src="{% static "js/main.js" %}"></script>
+
+    </body>
+</html>

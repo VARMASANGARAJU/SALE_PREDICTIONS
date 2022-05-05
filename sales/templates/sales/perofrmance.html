@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!--=============== FAVICON ===============-->
+        <link rel="shortcut icon" type="image/x-icon" href="{% static '/img/favicon.png' %}" >
+
+        <!--=============== REMIX ICONS ===============-->
+        <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+        <!--=============== CSS ===============-->
+        <link rel="stylesheet" type="text/css" href="{% static '/css/styles.css' %}" >
+
+        <title>Sales Prediction</title>
+    </head>
+    <body>
+        <!--==================== HEADER ====================-->
+        <header class="header" id="header">
+            <nav class="nav container">
+                <a href="#" class="nav__logo">
+                    <i class="ri-leaf-line nav__logo-icon"></i> Sales Prediction
+                </a>
+
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+
+
+                        <li class="nav__item">
+                            <a href="#upload" class="nav__link active-link">Preview</a>
+                        </li>
+
+                    </ul>
+
+                    <div class="nav__close" id="nav-close">
+                        <i class="ri-close-line"></i>
+                    </div>
+                </div>
+
+                <div class="nav__btns">
+                    <!-- Theme change button -->
+                    <i class="ri-moon-line change-theme" id="theme-button"></i>
+
+                    <div class="nav__toggle" id="nav-toggle">
+                        <i class="ri-menu-line"></i>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <main class="main">
+            <!--==================== HOME ====================-->
+
+
+            <!--==================== ABOUT ====================-->
+
+
+            <!--==================== STEPS ====================-->
+
+            <!--==================== QUESTIONS ====================-->
+            <section class="questions section" id="faqs">
+                <h2 class="section__title-center questions__title container">
+                   Uploaded Data <br>
+                </h2>
+                <!-- start of table -->
+                        <div class="card">
+                            <div class="card-body overflow-auto">
+                              <table class="table">
+                                    <thead>
+                                      <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Client Name</th>
+
+                                        <th scope="col">GST Number</th>
+
+                                        <th scope="col">CEO</th>
+                                        <th scope="col">Email ID</th>
+                                        <th scope="col"></th>
+                                        <th scope="col"></th>
+
+
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      {% for client in clients %}
+                                         <tr>
+                                           <th scope="row">{{ forloop.counter }}</th>
+                                           <td><a href="{% url 'contracts_management' client.id %}">{{client.name}}</a></td>
+                                           <td>{{client.gst}}</td>
+                                           <td>{{client.ceo}}</td>
+
+                                           <td>{{client.email}}</td>
+
+                                           <td><a><button type="button" class="btn btn-info btn-sm">Update</button></a></td>
+
+                                           <td><a   href="" ><button type="button" class="btn btn-danger btn-sm">Delete</button></a></td>
+
+                                         </tr>
+                                      {% endfor %}
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                <!-- end of table -->
+
+                <div class="questions__container container grid">
+
+
+
+                </div>
+            </section>
+
+
+
+        <!--=============== SCROLL UP ===============-->
+        <a href="#" class="scrollup" id="scroll-up">
+            <i class="ri-arrow-up-fill scrollup__icon"></i>
+        </a>
+
+        <!--=============== SCROLL REVEAL ===============-->
+        <script src="{% static "js/scrollreveal.min.js" %}"></script>
+
+        <!--=============== MAIN JS ===============-->
+        <script src="{% static "js/main.js" %}"></script>
+
+    </body>
+</html>
