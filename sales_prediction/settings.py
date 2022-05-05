@@ -128,12 +128,18 @@ STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
 
 STATIC_URL = '/static/'
 
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
 MEDIA_URL = '/images/'
 
 STATICFILES_DIRS = [
    os.path.join(BASE_DIR, 'static')
 ]
 
+TEMPLATE_DIRS = (
+    os.path.join(BASE_DIR,  'templates'),
+    # Add to this list all the locations containing your static files
+)
 MEDIA_ROOT = os.path.join(BASE_DIR,'static/images')
 
 # Default primary key field type
